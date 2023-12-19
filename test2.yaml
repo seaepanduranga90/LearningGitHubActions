@@ -1,0 +1,13 @@
+name: Pandurang2
+on:
+  push:
+    branches:
+      - 'Master'
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: tes2t
+        uses: actions/checkout@v2
+      - name: hellow world pandurang is there2
+        run: echo "hellow world pandurang is there2"
