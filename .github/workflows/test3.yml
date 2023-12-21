@@ -1,0 +1,23 @@
+name: Master push
+on:
+ push:
+  branches: 
+   - master
+jobs:
+ build:
+  runs-on: ubuntu-latest
+  steps:
+  - name: Checkout Repository
+    uses: actions/checkout@v2
+
+  - name: Set up Node.js
+    uses: actions/setup-nede@v3
+    with:
+     node-version: '14'
+
+  - name: install dependencies
+    run: npm install
+
+  - name: run tests
+    run: npm tests
+ 
