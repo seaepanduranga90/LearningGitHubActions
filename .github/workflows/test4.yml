@@ -18,3 +18,9 @@ jobs:
 
   - name: run tests
     run: npm test
+
+  - name: Upload Artifacts
+    uses: actions/upload-artifact@v2
+    with:
+      name: my-artifact
+      path: data/my-output.txt
