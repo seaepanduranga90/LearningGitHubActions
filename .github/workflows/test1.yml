@@ -12,8 +12,8 @@ jobs:
       - name: hellow world pandurang is there
         #run: echo "hellow world pandurang is there"
 
-        #name: Upload Artifact
+      - name: Archive code result
         uses: actions/upload-artifact@v2
         with: 
-        - name: workflow_steps
-        - path: workflow_steps_status.csv
+         name: workflow_steps
+         path: workflow_steps_status.csv
