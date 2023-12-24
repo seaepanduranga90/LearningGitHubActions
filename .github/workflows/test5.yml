@@ -1,0 +1,26 @@
+name: Pass Artifacts Between Jobs
+
+on: [push]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create Artifact
+      run: echo "Hello, this is some data" > output.txt
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: artifact_output.txt
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+    - name: Download Artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: my-artifact
+    - name: Display Artifact Content
+      run: cat my-artifact/artifact_output.txt
