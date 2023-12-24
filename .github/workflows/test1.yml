@@ -10,7 +10,7 @@ jobs:
       - name: test
         uses: actions/checkout@v2
       - name: hellow world pandurang is there
-        #run: echo "hellow world pandurang is there"
+        run: echo "hellow world pandurang is there"
 
       - name: Archive code result
         uses: actions/upload-artifact@v2
