@@ -16,4 +16,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with: 
          name: workflow_steps
-         path: LearningGitHubActions/demo/test.txt
+         path: artifact_output.txt
