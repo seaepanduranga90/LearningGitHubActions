@@ -23,4 +23,4 @@ jobs:
       with:
         name: my-artifact
     - name: Display Artifact Content
-      run: cat my-artifact/artifact_output.txt
+      run: cat my-artifact/artifact_output1.txt
