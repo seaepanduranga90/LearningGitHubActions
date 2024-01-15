@@ -18,7 +18,7 @@ resource "aws_instance" "demo" {
   ami = var.ami_id
   instance_type = var.instance_type["ap-south-1"]
   #security_groups = var.security_group
-  availability_zone = var.availability_zone[2]
+  #availability_zone = var.availability_zone[2]
 }
 variable "ami_id" {
   
