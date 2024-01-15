@@ -39,10 +39,10 @@ variable "instance_type" {
 #provider "awsr" {
  # region = "us-west-2"
 #}
-resource "aws_s3_bucket" "amda" {
-  bucket = "my-tf-test-bucket876713"
-  tags = {
-    Name = "My bucket"
-    Environment = "Test"
-  }
-}
+#resource "aws_s3_bucket" "amda" {
+ # bucket = "my-tf-test-bucket876713"
+  #tags = {
+   # Name = "My bucket"
+    #Environment = "Test"
+  #}
+#}
