@@ -1,4 +1,3 @@
-[9:36 AM] Pandurang Amdapure
 name: Terraform Apply
  
 on: workflow_dispatch
