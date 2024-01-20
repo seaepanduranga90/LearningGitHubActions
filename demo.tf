@@ -36,9 +36,56 @@ variable "instance_type" {
     ap-south-1 = "t2.micro"
   }
 }
-#provider "awsr" {
- # region = "us-west-2"
-#}
+resource "aws_security_group" "example_security_group" {
+  name        = "example-security-group"
+  description = "Example Security Group"
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+} 
+
+
+resource "aws_iam_role" "ec2_ssm_role" {
+  name = "ec2_ssm_role"
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      }
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy_attachment" "ec2_ssm_attachment" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMFullAccess"
+  role       = aws_iam_role.ec2_ssm_role.name
+}
+
 resource "aws_s3_bucket" "amda" {
   bucket = "my-tf-test-bucket876713"
   tags = {
