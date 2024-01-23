@@ -6,4 +6,3 @@ jobs:
   steps:
    -  name: install httpd
       run: "hellow world"
-      #pandu
