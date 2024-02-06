@@ -1,0 +1,8 @@
+name: Master push
+on:
+ push:
+  branche:
+  - Master
+jobs:
+ build:
+  runs-on:
